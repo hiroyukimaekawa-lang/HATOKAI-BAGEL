@@ -9,7 +9,6 @@ const observer = new IntersectionObserver(
   { threshold: 0.2 }
 );
 
-document.querySelectorAll(".section, .hero__card, .hero__copy").forEach((el) => {
-  el.classList.add("reveal");
+document.querySelectorAll(".reveal").forEach((el) => {
   observer.observe(el);
 });
