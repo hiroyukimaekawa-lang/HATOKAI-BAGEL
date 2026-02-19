@@ -3,150 +3,728 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>HATOKAI BAGEL | はじまり</title>
+    <title>HATOKAI BAGEL | 公式サイト</title>
     <meta
       name="description"
-      content="HATOKAI BAGELのはじまり。足立区関原の自家製ベーグル専門店。北海道小麦100%春よ恋、白神こだま酵母、白砂糖・保存料不使用。"
+      content="HATOKAI BAGEL公式サイト。北海道小麦100%春よ恋、白神こだま酵母、白砂糖・保存料不使用。女性にうれしい健康・安心・安全のベーグル。"
     />
-    <link rel="stylesheet" href="styles.css" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Serif+JP:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWix+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkR4j8wU5q9Qe2L4D1v0r4+8AB7QJfNfY0Kg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      :root {
+        --base: #faf7f2;
+        --accent: #c4956a;
+        --text: #3b2e2a;
+        --sub: #a8b5a0;
+        --line: rgba(59, 46, 42, 0.15);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Noto Serif JP", serif;
+        color: var(--text);
+        background: var(--base);
+        line-height: 1.8;
+      }
+
+      img {
+        width: 100%;
+        display: block;
+        object-fit: cover;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(1100px, 92vw);
+        margin: 0 auto;
+      }
+
+      .section {
+        padding: 84px 0;
+      }
+
+      .section-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(1.9rem, 3vw, 2.8rem);
+        margin-bottom: 12px;
+      }
+
+      .section-lead {
+        color: #5e4d46;
+        margin-bottom: 34px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        border-radius: 30px;
+        border: 1px solid var(--accent);
+        background: var(--accent);
+        color: #fff;
+        padding: 12px 24px;
+        font-size: 0.92rem;
+        transition: transform 0.24s ease, box-shadow 0.24s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 24px rgba(196, 149, 106, 0.35);
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: var(--accent);
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(250, 247, 242, 0.92);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .header-inner {
+        min-height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .logo {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.55rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+
+      .nav ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        font-size: 0.82rem;
+      }
+
+      .hero {
+        min-height: calc(100vh - 72px);
+        position: relative;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        color: #fff;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(rgba(30, 20, 16, 0.46), rgba(30, 20, 16, 0.46)),
+          url("img/food.jpg")
+            center/cover;
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 1;
+        width: min(820px, 92vw);
+      }
+
+      .hero h1 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2.2rem, 5vw, 4rem);
+        line-height: 1.25;
+      }
+
+      .hero p {
+        margin: 18px auto 30px;
+        color: #f3ece4;
+      }
+
+      .concept-split {
+        display: grid;
+        gap: 20px;
+      }
+
+      .concept-photo {
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+      }
+
+      .concept-photo img {
+        height: 100%;
+        min-height: 380px;
+      }
+
+      .concept-content {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 28px 24px;
+      }
+
+      .concept-item + .concept-item {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid var(--line);
+      }
+
+      .concept-item h3 {
+        font-size: 1.08rem;
+        margin-bottom: 8px;
+      }
+
+      .concept-item p {
+        color: #69554d;
+        font-size: 0.95rem;
+      }
+
+      .story-wrap {
+        display: grid;
+        gap: 26px;
+      }
+
+      .story-preview {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        overflow: hidden;
+      }
+
+      .timeline {
+        list-style: none;
+        border-left: 2px solid var(--accent);
+        margin-left: 10px;
+        padding-left: 22px;
+        display: grid;
+        gap: 18px;
+      }
+
+      .timeline li {
+        position: relative;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 0;
+      }
+
+      .timeline li::before {
+        content: "";
+        position: absolute;
+        left: -29px;
+        top: 19px;
+        width: 12px;
+        height: 12px;
+        border-radius: 999px;
+        background: var(--accent);
+      }
+
+      .timeline h4 {
+        font-size: 0.95rem;
+      }
+
+      .timeline p {
+        font-size: 0.9rem;
+        color: #6a5750;
+      }
+
+      .timeline-trigger {
+        width: 100%;
+        border: 0;
+        background: transparent;
+        text-align: left;
+        cursor: pointer;
+        padding: 14px 14px;
+        color: inherit;
+        font: inherit;
+      }
+
+      .timeline-trigger:hover {
+        background: #faf5ef;
+      }
+
+      .timeline-trigger.is-active {
+        background: #f6eee3;
+      }
+
+      .timeline-inline-preview {
+        display: none;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .timeline-inline-preview img {
+        height: 220px;
+      }
+
+      .timeline-inline-preview__body {
+        padding: 12px;
+      }
+
+      .timeline-inline-preview__title {
+        font-size: 0.95rem;
+        margin-bottom: 6px;
+      }
+
+      .timeline-inline-preview__text {
+        font-size: 0.88rem;
+        color: #6a5750;
+      }
+
+      .story-preview img {
+        height: 320px;
+      }
+
+      .story-preview__body {
+        padding: 18px;
+      }
+
+      .story-preview__title {
+        font-size: 1.05rem;
+        margin-bottom: 8px;
+      }
+
+      .story-preview__text {
+        font-size: 0.92rem;
+        color: #68544c;
+      }
+
+      .story-origin {
+        margin-top: 14px;
+        padding-top: 14px;
+        border-top: 1px solid var(--line);
+        font-size: 0.9rem;
+        color: #6a5750;
+      }
+
+      .story-origin:empty {
+        display: none;
+      }
+
+      .menu-carousel {
+        position: relative;
+        margin: 26px 0 30px;
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: #efe6db;
+      }
+
+      .menu-slide {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity 0.8s ease;
+      }
+
+      .menu-slide.is-active {
+        opacity: 1;
+        z-index: 1;
+      }
+
+      .menu-slide img {
+        height: 320px;
+      }
+
+      .menu-carousel__label {
+        position: absolute;
+        left: 12px;
+        bottom: 12px;
+        z-index: 2;
+        background: rgba(37, 27, 22, 0.6);
+        color: #fff;
+        font-size: 0.85rem;
+        padding: 6px 10px;
+        border-radius: 999px;
+      }
+
+      .order {
+        background: linear-gradient(160deg, #f8f3ec 0%, #efe4d5 100%);
+      }
+
+      .order-card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 28px;
+        text-align: center;
+      }
+
+      .order-card .btn {
+        margin: 20px 0;
+        padding: 14px 30px;
+        font-size: 1rem;
+      }
+
+      .order-note {
+        font-size: 0.9rem;
+        color: #6c5952;
+      }
+
+      .access-grid {
+        display: grid;
+        gap: 20px;
+      }
+
+      .info-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+      }
+
+      .info-table th,
+      .info-table td {
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+        padding: 12px 14px;
+        font-size: 0.93rem;
+      }
+
+      .info-table th {
+        width: 34%;
+        background: #f7f0e7;
+      }
+
+      .map-wrap iframe {
+        width: 100%;
+        min-height: 360px;
+        border: 0;
+        border-radius: 14px;
+      }
+
+      .access-note {
+        margin-top: 10px;
+        color: #6b5750;
+        font-size: 0.9rem;
+      }
+
+      .site-footer {
+        background: #2d2320;
+        color: #e9d9ca;
+        padding: 34px 0;
+      }
+
+      .footer-inner {
+        display: grid;
+        gap: 16px;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        font-size: 0.88rem;
+      }
+
+      .footer-sns a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .copyright {
+        font-size: 0.8rem;
+        color: #c9b5a4;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (min-width: 740px) {
+        .concept-split {
+          grid-template-columns: 1fr 1fr;
+          align-items: stretch;
+        }
+
+        .story-wrap {
+          grid-template-columns: 1fr 1.2fr;
+          align-items: start;
+        }
+
+        .access-grid {
+          grid-template-columns: 1fr 1.2fr;
+          align-items: start;
+        }
+
+        .footer-inner {
+          grid-template-columns: 1fr auto;
+          align-items: center;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .nav ul {
+          display: none;
+        }
+
+        .menu-slide img {
+          height: 240px;
+        }
+      }
+
+      @media (max-width: 739px) {
+        .story-preview {
+          display: none;
+        }
+
+        .timeline-inline-preview {
+          display: block;
+        }
+      }
+    </style>
   </head>
   <body>
     <header class="site-header">
-      <div class="container nav">
-        <a class="brand" href="#">HATOKAI BAGEL</a>
-        <nav class="nav-links">
-          <a href="#story">はじまり</a>
-          <a href="#concept">こだわり</a>
-          <a href="#access">アクセス</a>
-          <a class="btn btn--sm" href="#reserve">予約</a>
+      <div class="container header-inner">
+        <a class="logo" href="#home">HATOKAI BAGEL</a>
+        <nav class="nav" aria-label="メインナビゲーション">
+          <ul>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#concept">CONCEPT</a></li>
+            <li><a href="#story">OUR STORY</a></li>
+            <li><a href="#menu">MENU</a></li>
+            <li><a href="#access">ACCESS</a></li>
+            <li><a href="#order">ORDER</a></li>
+          </ul>
         </nav>
       </div>
     </header>
 
-    <main>
-      <section class="hero-banner">
-        <img src="img/food.jpg" alt="焼きたてベーグル" />
-      </section>
-
-      <div class="notice-bar">
-        <p>東京都足立区関原2-15-4 オリンピック関原店駐車場内 / 08:00-19:00（営業時間外は無人販売）</p>
-      </div>
-
-      <section id="story" class="section section--paper reveal">
-        <div class="container two-col two-col--intro">
-          <article class="panel panel--text">
-            <p class="eyebrow">HATOKAI BAGEL STORY</p>
-            <h1>HATOKAI BAGEL のはじまり</h1>
-            <p>
-              HATOKAIは、夫婦と4人の子どもたちの頭文字から生まれた名前です。
-              2013年頃に「いつか実店舗を持ちたい」と話し、2021年にキッチンカーを始動。
-              2023年3月1日に足立店、2024年12月に台東店をオープンしました。
-            </p>
-            <p>
-              固定概念にとらわれず、キッチンカー、店舗、通販、海外展開へ。
-              HATOKAI BAGELらしく挑戦を続けています。
-            </p>
-          </article>
-          <figure class="panel panel--image">
-            <img src="img/food2.webp" alt="HATOKAI BAGELのベーグル" loading="lazy" />
-          </figure>
+    <main id="home">
+      <section class="hero">
+        <div class="hero-inner reveal">
+          <h1>家族の想いを、ひとつひとつ丁寧に。</h1>
+          <p>北海道小麦・天然酵母・無添加。体にやさしいベーグルをお届けします。</p>
+          <a class="btn" href="https://www.instagram.com/hatokaibagel/" target="_blank" rel="noreferrer"
+            ><i class="fa-brands fa-instagram" aria-hidden="true"></i> ご予約はこちら（Instagram）</a
+          >
         </div>
       </section>
 
-      <section id="concept" class="section section--cream reveal">
-        <div class="container two-col two-col--concept">
-          <figure class="panel panel--image">
-            <img src="img/food3.webp" alt="日替わりベーグル" loading="lazy" />
-          </figure>
-          <article class="panel panel--text panel--tight">
-            <p class="eyebrow">CONCEPT</p>
-            <h2>名もなきベーグルだからこその、
-              やさしい日常食。</h2>
-            <p>
-              北海道小麦100%「春よ恋」、天然酵母「白神こだま酵母」を使用。
-              生地には白砂糖・保存料を使わず、健康・安心・安全を軸に作っています。
-            </p>
-            <a class="btn" href="https://www.instagram.com/hatokaibagel/" target="_blank" rel="noreferrer">Instagramを見る</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="brand-strip reveal">
-        <div class="container brand-strip__inner">
-          <h2>ベーグルの人手辞書</h2>
-          <ul>
-            <li>HOKKAIDO WHEAT</li>
-            <li>SHIRAKAMI YEAST</li>
-            <li>NO WHITE SUGAR</li>
-            <li>NO PRESERVATIVES</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section section--paper reveal">
-        <div class="container two-col two-col--feature">
-          <article class="panel panel--text">
-            <p class="eyebrow">FEATURE</p>
-            <h2>女性の毎日に、
-              健康・安心・安全を。</h2>
-            <p>
-              忙しい日でも続けやすいように、冷凍保存30日対応。
-              朝食、軽食、家族の食事まで、生活リズムに合わせて楽しめます。
-            </p>
-            <ul class="feature-list">
-              <li>24時間営業（営業時間外は無人販売）</li>
-              <li>東武スカイツリーライン 西新井駅から徒歩15分</li>
-              <li>女性を中心に、毎日食べられる味設計</li>
-            </ul>
-          </article>
-          <figure class="panel panel--image panel--portrait">
-            <img src="img/food4.webp" alt="店舗で販売中のベーグル" loading="lazy" />
-          </figure>
-        </div>
-      </section>
-
-      <section id="reserve" class="reserve reveal">
-        <div class="container reserve__inner">
-          <a class="reserve__link" href="https://www.instagram.com/hatokaibagel/" target="_blank" rel="noreferrer">
-            <span class="ig-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" role="img" focusable="false">
-                <path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm10 2H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm-5 3.2a4.8 4.8 0 1 1 0 9.6 4.8 4.8 0 0 1 0-9.6zm0 2a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6zm5.4-.9a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-              </svg>
-            </span>
-            <p class="eyebrow">RESERVATION</p>
-            <h2>予約はInstagramから</h2>
-          </a>
-        </div>
-      </section>
-
-      <section id="access" class="section section--paper reveal">
+      <section id="concept" class="section reveal">
         <div class="container">
-          <div class="section-head">
-            <p class="eyebrow">ACCESS</p>
-            <h2>東武スカイツリーライン 西新井駅から徒歩15分</h2>
+          <h2 class="section-title">HATOKAI BAGELのこだわり</h2>
+          <p class="section-lead">健康・安心・安全、そして自然素材。女性の毎日に寄り添う味を目指しています。</p>
+          <div class="concept-split">
+            <figure class="concept-photo">
+              <img src="img/food4.jpg" alt="HATOKAI BAGELのベーグル" loading="lazy" />
+            </figure>
+            <div class="concept-content">
+              <article class="concept-item">
+              <h3>🌾 北海道小麦100%「春よ恋」使用</h3>
+              <p>小麦本来の香りと甘みを大切に、毎日食べやすい食感に仕上げています。</p>
+              </article>
+              <article class="concept-item">
+              <h3>🍞 天然酵母「白神こだま酵母」使用</h3>
+              <p>やさしい発酵の力で、噛むほどにうまみが広がる生地を作っています。</p>
+              </article>
+              <article class="concept-item">
+              <h3>❄️ 冷凍保存30日OK・白砂糖・保存料不使用</h3>
+              <p>忙しい日でも続けやすく、素材に配慮した安心のベーグルです。</p>
+              </article>
+            </div>
           </div>
-          <div class="access-grid">
-            <article class="panel panel--text panel--tight">
-              <h3>HATOKAI BAGEL 足立店</h3>
-              <p>東京都足立区関原2-15-4 オリンピック関原店駐車場内</p>
-              <p>08:00-19:00（営業時間外は無人販売） / 24時間営業</p>
-              <div class="access-links">
-                <a class="btn btn--outline" href="https://www.wabagel.com/" target="_blank" rel="noreferrer">公式サイト</a>
-                <a class="btn btn--outline" href="https://www.instagram.com/hatokaibagel/" target="_blank" rel="noreferrer">Instagram</a>
+        </div>
+      </section>
+
+      <section id="story" class="section reveal">
+        <div class="container">
+          <h2 class="section-title">HATOKAI BAGELのはじまり</h2>
+          <div class="story-wrap">
+            <article class="story-preview">
+              <img id="story-photo-image" src="img/food.jpg" alt="創業の想いを表すベーグル" loading="lazy" />
+              <div class="story-preview__body">
+                <h3 id="story-photo-caption" class="story-preview__title">名前に込めた想い</h3>
+                <p id="story-photo-detail" class="story-preview__text">
+                  HATOKAIは、夫婦と4人の子どもたちから生まれた名前です。はるま（HA）・とうま（TO）・かずま（KA）・いろは（I）の頭文字を組み合わせ、家族の歴史そのものを店名に込めました。
+                </p>
+                <p id="story-origin-text" class="story-origin">
+                  いつもHATOKAI BAGELを支えてくださっている皆さまへ。改めて、私たちのお店の名前の由来と、ここまでの歩みをお伝えします。
+                </p>
               </div>
             </article>
+            <ul class="timeline">
+              <li>
+                <button class="timeline-trigger is-active" type="button" data-image="img/food.jpg" data-alt="名前に込めた想いを表すベーグル" data-caption="名前に込めた想い" data-detail="HATOKAIは、夫婦と4人の子どもたちから生まれた名前です。はるま（HA）・とうま（TO）・かずま（KA）・いろは（I）の頭文字を組み合わせ、家族の歴史そのものを店名に込めました。" data-origin="いつもHATOKAI BAGELを支えてくださっている皆さまへ。改めて、私たちのお店の名前の由来と、ここまでの歩みをお伝えします。">
+                  <h4>名前に込めた想い</h4>
+                  <p>はるま（HA）・とうま（TO）・かずま（KA）・いろは（I）</p>
+                </button>
+              </li>
+              <li class="timeline-inline-preview" id="timeline-inline-preview">
+                <img id="timeline-inline-image" src="img/food.jpg" alt="名前に込めた想いを表すベーグル" loading="lazy" />
+                <div class="timeline-inline-preview__body">
+                  <h5 id="timeline-inline-caption" class="timeline-inline-preview__title">名前に込めた想い</h5>
+                  <p id="timeline-inline-detail" class="timeline-inline-preview__text">
+                    HATOKAIは、夫婦と4人の子どもたちから生まれた名前です。はるま（HA）・とうま（TO）・かずま（KA）・いろは（I）の頭文字を組み合わせ、家族の歴史そのものを店名に込めました。
+                  </p>
+                </div>
+              </li>
+              <li>
+                <button class="timeline-trigger" type="button" data-image="img/food2.jpg" data-alt="実店舗の夢を語り始めた時期のイメージ" data-caption="すべては「やってみたいね」から（2013年頃）" data-detail="出会った当初、『いつか実店舗をやってみたいね』と話していたものの、資金も人脈もなく、何から始めればよいか分からない。そんな会社員だった2人のスタートでした。" data-origin="">
+                  <h4>2013年頃</h4>
+                  <p>「いつか実店舗を」からすべてが始まる</p>
+                </button>
+              </li>
+              <li>
+                <button class="timeline-trigger" type="button" data-image="img/food3.jpg" data-alt="キッチンカーを検討した時期のイメージ" data-caption="2021年夏: キッチンカー構想が動き出す" data-detail="『キッチンカーってどうかな？』という一言で流れが変化。最初は迷いながらも、フットワークの軽さで購入を決断しました。" data-origin="">
+                  <h4>2021年夏</h4>
+                  <p>キッチンカー構想が動き出す</p>
+                </button>
+              </li>
+              <li>
+                <button class="timeline-trigger" type="button" data-image="img/food4.jpg" data-alt="電話営業で出店場所を探した時期のイメージ" data-caption="2021年9月: 電話営業から始まった挑戦" data-detail="キッチンカー契約・製造開始後、出店場所の知識はゼロ。駅、ショッピングモール、空き地まで片っ端から電話し、『11月にキッチンカーができるんですが、置かせてもらえませんか？』と営業を続けました。" data-origin="">
+                  <h4>2021年9月</h4>
+                  <p>電話営業から始まった挑戦</p>
+                </button>
+              </li>
+              <li>
+                <button class="timeline-trigger" type="button" data-image="img/food5.jpg" data-alt="初出店時期のイメージ" data-caption="2021年11月19日: 亀有香取神社で初出店" data-detail="断られ続ける中、保育園のママ友の紹介でご縁がつながり、打ち合わせを重ねて初出店が決定。夫婦の記念日でもある11月19日にオープンしました。" data-origin="">
+                  <h4>2021年11月19日</h4>
+                  <p>亀有香取神社で初出店（記念日）</p>
+                </button>
+              </li>
+              <li>
+                <button class="timeline-trigger" type="button" data-image="img/food6.jpg" data-alt="ベーグル試作時期のイメージ" data-caption="ベーグルとの出会い" data-detail="何を売るか悩み、ベーグルとキーマカレーの試作を開始。週末限定出店で約1年間、週替わりの多彩なベーグルを作り続け、『このベーグルならお店を出せる』という声が次の一歩につながりました。" data-origin="">
+                  <h4>ベーグルとの出会い</h4>
+                  <p>試作と週末出店で商品を磨く</p>
+                </button>
+              </li>
+              <li>
+                <button class="timeline-trigger" type="button" data-image="img/food7.jpg" data-alt="足立店オープン時期のイメージ" data-caption="2023年3月1日: HATOKAI BAGEL 足立店オープン" data-detail="環境も気持ちも整い、足立店をオープン。商品札を集めるとベーグルは70種類以上になり、現在は日替わりで提供しています。" data-origin="">
+                  <h4>2023年3月1日</h4>
+                  <p>HATOKAI BAGEL 足立店オープン</p>
+                </button>
+              </li>
+              <li>
+                <button class="timeline-trigger" type="button" data-image="img/food8.jpg" data-alt="台東店オープン時期のイメージ" data-caption="2024年12月: HATOKAI BAGEL 台東店オープン" data-detail="ご縁が広がり、台東店をオープン。大型イベントやパンマルシェ、西新井アリオ菓子博など、さまざまな場所でベーグルを届けてきました。" data-origin="">
+                  <h4>2024年12月</h4>
+                  <p>HATOKAI BAGEL 台東店オープン</p>
+                </button>
+              </li>
+              <li>
+                <button class="timeline-trigger" type="button" data-image="img/food9.jpg" data-alt="未来展開をイメージしたベーグル" data-caption="これからのHATOKAI BAGEL" data-detail="多くの方々に支えられながら、キッチンカー、店舗、通販、そして海外（カナダ・バンクーバー）へ。HATOKAI BAGELらしく、一歩ずつ楽しみながら挑戦を続けていきます。" data-origin="いつもHATOKAI BAGELを支えてくださっている皆さまへ。改めて、私たちのお店の名前の由来と、ここまでの歩みをお伝えします。">
+                  <h4>これから</h4>
+                  <p>通販・海外（カナダ・バンクーバー）展開へ</p>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="menu" class="section reveal">
+        <div class="container">
+          <h2 class="section-title">本日のベーグル</h2>
+          <p class="section-lead">日替わりでご提供中。詳しくはInstagramをご覧ください。</p>
+          <div class="menu-carousel" aria-label="本日のベーグル写真カルーセル">
+            <figure class="menu-slide is-active">
+              <img src="img/food.jpg" alt="ベーグルプレート1" loading="lazy" />
+            </figure>
+            <figure class="menu-slide">
+              <img src="img/food2.webp" alt="ベーグルプレート2" loading="lazy" />
+            </figure>
+            <figure class="menu-slide">
+              <img src="img/food3.webp" alt="ベーグルプレート3" loading="lazy" />
+            </figure>
+            <figure class="menu-slide">
+              <img src="img/food4.webp" alt="ベーグルプレート4" loading="lazy" />
+            </figure>
+            <p class="menu-carousel__label">ベーグルプレート</p>
+          </div>
+          <a class="btn" href="https://www.instagram.com/hatokaibagel/" target="_blank" rel="noreferrer"
+            ><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagramで最新メニューを見る</a
+          >
+        </div>
+      </section>
+
+      <section id="order" class="section order reveal">
+        <div class="container">
+          <h2 class="section-title">ご予約・お問い合わせ</h2>
+          <div class="order-card">
+            <p>Instagramよりご予約を承っております。</p>
+            <a class="btn" href="https://www.instagram.com/hatokaibagel/" target="_blank" rel="noreferrer"
+              ><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagramで予約する</a
+            >
+            <p class="order-note">お問い合わせフォームはございません。InstagramのDMにてお気軽にご連絡ください。</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="access" class="section reveal">
+        <div class="container">
+          <h2 class="section-title">店舗情報・アクセス</h2>
+          <div class="access-grid">
+            <div>
+              <table class="info-table">
+                <tbody>
+                  <tr>
+                    <th>店名</th>
+                    <td>HATOKAI BAGEL</td>
+                  </tr>
+                  <tr>
+                    <th>住所</th>
+                    <td>東京都足立区関原2-15-4 オリンピック関原店駐車場内</td>
+                  </tr>
+                  <tr>
+                    <th>営業時間</th>
+                    <td>08:00〜19:00（営業時間外は無人販売）／24時間対応</td>
+                  </tr>
+                  <tr>
+                    <th>アクセス</th>
+                    <td>東武スカイツリーライン 西新井駅から徒歩15分</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="access-note">営業時間外は無人販売を行っております。</p>
+            </div>
             <div class="map-wrap">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.2424585576055!2d139.7898237!3d35.7694201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188f4bfa8715df%3A0x44a8c8c24537ef45!2sHATOKAI%20BAGEL!5e0!3m2!1sja!2sjp!4v1770383652633!5m2!1sja!2sjp"
-                width="600"
-                height="420"
-                style="border:0;"
                 allowfullscreen
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
@@ -159,12 +737,84 @@
     </main>
 
     <footer class="site-footer">
-      <div class="container footer__inner">
-        <p>HATOKAI BAGEL</p>
-        <p>健康・安心・安全の食事を、日常に。</p>
+      <div class="container footer-inner">
+        <div>
+          <p class="logo">HATOKAI BAGEL</p>
+          <nav class="footer-links" aria-label="フッターナビゲーション">
+            <a href="#home">HOME</a>
+            <a href="#concept">CONCEPT</a>
+            <a href="#story">OUR STORY</a>
+            <a href="#menu">MENU</a>
+            <a href="#access">ACCESS</a>
+            <a href="#order">ORDER</a>
+          </nav>
+        </div>
+        <div>
+          <p class="footer-sns">
+            <a href="https://www.instagram.com/hatokaibagel/" target="_blank" rel="noreferrer"
+              ><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram</a
+            >
+          </p>
+          <p class="copyright">© 2024 HATOKAI BAGEL All rights reserved.</p>
+        </div>
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+            }
+          });
+        },
+        { threshold: 0.16 }
+      );
+
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+      const timelineTriggers = document.querySelectorAll(".timeline-trigger");
+      const storyPhotoImage = document.getElementById("story-photo-image");
+      const storyPhotoCaption = document.getElementById("story-photo-caption");
+      const storyPhotoDetail = document.getElementById("story-photo-detail");
+      const storyOriginText = document.getElementById("story-origin-text");
+      const timelineInlinePreview = document.getElementById("timeline-inline-preview");
+      const timelineInlineImage = document.getElementById("timeline-inline-image");
+      const timelineInlineCaption = document.getElementById("timeline-inline-caption");
+      const timelineInlineDetail = document.getElementById("timeline-inline-detail");
+      const menuSlides = document.querySelectorAll(".menu-slide");
+      let menuIndex = 0;
+
+      timelineTriggers.forEach((trigger) => {
+        trigger.addEventListener("click", () => {
+          timelineTriggers.forEach((item) => item.classList.remove("is-active"));
+          trigger.classList.add("is-active");
+          storyPhotoImage.src = trigger.dataset.image;
+          storyPhotoImage.alt = trigger.dataset.alt;
+          storyPhotoCaption.textContent = trigger.dataset.caption;
+          storyPhotoDetail.textContent = trigger.dataset.detail;
+          storyOriginText.textContent = trigger.dataset.origin || "";
+
+          timelineInlineImage.src = trigger.dataset.image;
+          timelineInlineImage.alt = trigger.dataset.alt;
+          timelineInlineCaption.textContent = trigger.dataset.caption;
+          timelineInlineDetail.textContent = trigger.dataset.detail;
+
+          const parentItem = trigger.closest("li");
+          if (window.matchMedia("(max-width: 739px)").matches && parentItem && timelineInlinePreview) {
+            parentItem.insertAdjacentElement("afterend", timelineInlinePreview);
+          }
+        });
+      });
+
+      if (menuSlides.length > 1) {
+        setInterval(() => {
+          menuSlides[menuIndex].classList.remove("is-active");
+          menuIndex = (menuIndex + 1) % menuSlides.length;
+          menuSlides[menuIndex].classList.add("is-active");
+        }, 3200);
+      }
+    </script>
   </body>
 </html>
