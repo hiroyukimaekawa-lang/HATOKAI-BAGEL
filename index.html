@@ -80,6 +80,10 @@
         margin-bottom: 34px;
       }
 
+      .sp-break {
+        display: none;
+      }
+
       .btn {
         display: inline-flex;
         align-items: center;
@@ -130,10 +134,70 @@
 
       .nav ul {
         list-style: none;
-        display: flex;
-        align-items: center;
-        gap: 16px;
+        display: grid;
+        gap: 10px;
         font-size: 0.82rem;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        background: #fff;
+        cursor: pointer;
+      }
+
+      .menu-toggle span {
+        width: 18px;
+        height: 2px;
+        background: var(--text);
+        transition: transform 0.24s ease, opacity 0.24s ease;
+      }
+
+      .nav {
+        position: fixed;
+        top: 78px;
+        right: 4vw;
+        width: min(300px, 88vw);
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 14px;
+        box-shadow: 0 18px 36px rgba(59, 46, 42, 0.16);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: opacity 0.24s ease, transform 0.24s ease, visibility 0.24s ease;
+        z-index: 60;
+      }
+
+      .nav a {
+        display: block;
+        padding: 8px 6px;
+      }
+
+      body.menu-open .nav {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      body.menu-open .menu-toggle span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+      }
+
+      body.menu-open .menu-toggle span:nth-child(2) {
+        opacity: 0;
+      }
+
+      body.menu-open .menu-toggle span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
       }
 
       .hero {
@@ -376,11 +440,15 @@
         background: linear-gradient(160deg, #f8f3ec 0%, #efe4d5 100%);
       }
 
+      #order .section-title {
+        text-align: center;
+      }
+
       .order-card {
         background: #fff;
         border: 1px solid var(--line);
         border-radius: 18px;
-        padding: 28px;
+        padding: 15px;
         text-align: center;
       }
 
@@ -498,12 +566,26 @@
       }
 
       @media (max-width: 900px) {
-        .nav ul {
-          display: none;
-        }
-
         .menu-slide img {
           height: 240px;
+        }
+
+        #menu {
+          text-align: center;
+        }
+
+        #menu .section-lead {
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        #menu .menu-carousel__label {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
+        .sp-break {
+          display: inline;
         }
       }
 
@@ -522,8 +604,13 @@
     <header class="site-header">
       <div class="container header-inner">
         <a class="logo" href="#home">HATOKAI BAGEL</a>
+        <button id="menu-toggle" class="menu-toggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <nav class="nav" aria-label="メインナビゲーション">
-          <ul>
+          <ul id="site-nav">
             <li><a href="#home">HOME</a></li>
             <li><a href="#concept">CONCEPT</a></li>
             <li><a href="#story">OUR STORY</a></li>
@@ -538,8 +625,8 @@
     <main id="home">
       <section class="hero">
         <div class="hero-inner reveal">
-          <h1>家族の想いを、ひとつひとつ丁寧に。</h1>
-          <p>北海道小麦・天然酵母・無添加。体にやさしいベーグルをお届けします。</p>
+          <h1>家族の想いを<br>ひとつひとつ丁寧に</h1>
+          <p>北海道小麦・天然酵母・無添加<br>体にやさしいベーグルをお届けします</p>
           <a class="btn" href="https://www.instagram.com/hatokaibagel/" target="_blank" rel="noreferrer"
             ><i class="fa-brands fa-instagram" aria-hidden="true"></i> ご予約はこちら（Instagram）</a
           >
@@ -548,7 +635,7 @@
 
       <section id="concept" class="section reveal">
         <div class="container">
-          <h2 class="section-title">HATOKAI BAGELのこだわり</h2>
+          <h2 class="section-title">こだわり</h2>
           <p class="section-lead">健康・安心・安全、そして自然素材。女性の毎日に寄り添う味を目指しています。</p>
           <div class="concept-split">
             <figure class="concept-photo">
@@ -574,7 +661,7 @@
 
       <section id="story" class="section reveal">
         <div class="container">
-          <h2 class="section-title">HATOKAI BAGELのはじまり</h2>
+          <h2 class="section-title">はじまり</h2>
           <div class="story-wrap">
             <article class="story-preview">
               <img id="story-photo-image" src="img/food.jpg" alt="創業の想いを表すベーグル" loading="lazy" />
@@ -623,31 +710,31 @@
                 </button>
               </li>
               <li>
-                <button class="timeline-trigger" type="button" data-image="img/food5.jpg" data-alt="初出店時期のイメージ" data-caption="2021年11月19日: 亀有香取神社で初出店" data-detail="断られ続ける中、保育園のママ友の紹介でご縁がつながり、打ち合わせを重ねて初出店が決定。夫婦の記念日でもある11月19日にオープンしました。" data-origin="">
+                <button class="timeline-trigger" type="button" data-image="img/food.jpg" data-alt="初出店時期のイメージ" data-caption="2021年11月19日: 亀有香取神社で初出店" data-detail="断られ続ける中、保育園のママ友の紹介でご縁がつながり、打ち合わせを重ねて初出店が決定。夫婦の記念日でもある11月19日にオープンしました。" data-origin="">
                   <h4>2021年11月19日</h4>
                   <p>亀有香取神社で初出店（記念日）</p>
                 </button>
               </li>
               <li>
-                <button class="timeline-trigger" type="button" data-image="img/food6.jpg" data-alt="ベーグル試作時期のイメージ" data-caption="ベーグルとの出会い" data-detail="何を売るか悩み、ベーグルとキーマカレーの試作を開始。週末限定出店で約1年間、週替わりの多彩なベーグルを作り続け、『このベーグルならお店を出せる』という声が次の一歩につながりました。" data-origin="">
+                <button class="timeline-trigger" type="button" data-image="img/food2.jpg" data-alt="ベーグル試作時期のイメージ" data-caption="ベーグルとの出会い" data-detail="何を売るか悩み、ベーグルとキーマカレーの試作を開始。週末限定出店で約1年間、週替わりの多彩なベーグルを作り続け、『このベーグルならお店を出せる』という声が次の一歩につながりました。" data-origin="">
                   <h4>ベーグルとの出会い</h4>
                   <p>試作と週末出店で商品を磨く</p>
                 </button>
               </li>
               <li>
-                <button class="timeline-trigger" type="button" data-image="img/food7.jpg" data-alt="足立店オープン時期のイメージ" data-caption="2023年3月1日: HATOKAI BAGEL 足立店オープン" data-detail="環境も気持ちも整い、足立店をオープン。商品札を集めるとベーグルは70種類以上になり、現在は日替わりで提供しています。" data-origin="">
+                <button class="timeline-trigger" type="button" data-image="img/food3.jpg" data-alt="足立店オープン時期のイメージ" data-caption="2023年3月1日: HATOKAI BAGEL 足立店オープン" data-detail="環境も気持ちも整い、足立店をオープン。商品札を集めるとベーグルは70種類以上になり、現在は日替わりで提供しています。" data-origin="">
                   <h4>2023年3月1日</h4>
                   <p>HATOKAI BAGEL 足立店オープン</p>
                 </button>
               </li>
               <li>
-                <button class="timeline-trigger" type="button" data-image="img/food8.jpg" data-alt="台東店オープン時期のイメージ" data-caption="2024年12月: HATOKAI BAGEL 台東店オープン" data-detail="ご縁が広がり、台東店をオープン。大型イベントやパンマルシェ、西新井アリオ菓子博など、さまざまな場所でベーグルを届けてきました。" data-origin="">
+                <button class="timeline-trigger" type="button" data-image="img/food4.jpg" data-alt="台東店オープン時期のイメージ" data-caption="2024年12月: HATOKAI BAGEL 台東店オープン" data-detail="ご縁が広がり、台東店をオープン。大型イベントやパンマルシェ、西新井アリオ菓子博など、さまざまな場所でベーグルを届けてきました。" data-origin="">
                   <h4>2024年12月</h4>
                   <p>HATOKAI BAGEL 台東店オープン</p>
                 </button>
               </li>
               <li>
-                <button class="timeline-trigger" type="button" data-image="img/food9.jpg" data-alt="未来展開をイメージしたベーグル" data-caption="これからのHATOKAI BAGEL" data-detail="多くの方々に支えられながら、キッチンカー、店舗、通販、そして海外（カナダ・バンクーバー）へ。HATOKAI BAGELらしく、一歩ずつ楽しみながら挑戦を続けていきます。" data-origin="いつもHATOKAI BAGELを支えてくださっている皆さまへ。改めて、私たちのお店の名前の由来と、ここまでの歩みをお伝えします。">
+                <button class="timeline-trigger" type="button" data-image="img/food.jpg" data-alt="未来展開をイメージしたベーグル" data-caption="これからのHATOKAI BAGEL" data-detail="多くの方々に支えられながら、キッチンカー、店舗、通販、そして海外（カナダ・バンクーバー）へ。HATOKAI BAGELらしく、一歩ずつ楽しみながら挑戦を続けていきます。" data-origin="いつもHATOKAI BAGELを支えてくださっている皆さまへ。改めて、私たちのお店の名前の由来と、ここまでの歩みをお伝えします。">
                   <h4>これから</h4>
                   <p>通販・海外（カナダ・バンクーバー）展開へ</p>
                 </button>
@@ -660,19 +747,19 @@
       <section id="menu" class="section reveal">
         <div class="container">
           <h2 class="section-title">本日のベーグル</h2>
-          <p class="section-lead">日替わりでご提供中。詳しくはInstagramをご覧ください。</p>
+          <p class="section-lead">日替わりでご提供中。<br class="sp-break" />詳しくはInstagramをご覧ください。</p>
           <div class="menu-carousel" aria-label="本日のベーグル写真カルーセル">
             <figure class="menu-slide is-active">
               <img src="img/food.jpg" alt="ベーグルプレート1" loading="lazy" />
             </figure>
             <figure class="menu-slide">
-              <img src="img/food2.webp" alt="ベーグルプレート2" loading="lazy" />
+              <img src="img/food2.jpg" alt="ベーグルプレート2" loading="lazy" />
             </figure>
             <figure class="menu-slide">
-              <img src="img/food3.webp" alt="ベーグルプレート3" loading="lazy" />
+              <img src="img/food3.jpg" alt="ベーグルプレート3" loading="lazy" />
             </figure>
             <figure class="menu-slide">
-              <img src="img/food4.webp" alt="ベーグルプレート4" loading="lazy" />
+              <img src="img/food4.jpg" alt="ベーグルプレート4" loading="lazy" />
             </figure>
             <p class="menu-carousel__label">ベーグルプレート</p>
           </div>
@@ -755,7 +842,7 @@
               ><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram</a
             >
           </p>
-          <p class="copyright">© 2024 HATOKAI BAGEL All rights reserved.</p>
+          <p class="copyright">© 2026 HATOKAI BAGEL All rights reserved.</p>
         </div>
       </div>
     </footer>
@@ -784,6 +871,8 @@
       const timelineInlineCaption = document.getElementById("timeline-inline-caption");
       const timelineInlineDetail = document.getElementById("timeline-inline-detail");
       const menuSlides = document.querySelectorAll(".menu-slide");
+      const menuToggle = document.getElementById("menu-toggle");
+      const siteNav = document.getElementById("site-nav");
       let menuIndex = 0;
 
       timelineTriggers.forEach((trigger) => {
@@ -815,6 +904,31 @@
           menuSlides[menuIndex].classList.add("is-active");
         }, 3200);
       }
+
+      if (menuToggle) {
+        menuToggle.addEventListener("click", () => {
+          const willOpen = !document.body.classList.contains("menu-open");
+          document.body.classList.toggle("menu-open", willOpen);
+          menuToggle.setAttribute("aria-expanded", String(willOpen));
+        });
+      }
+
+      document.querySelectorAll(".nav a").forEach((link) => {
+        link.addEventListener("click", () => {
+          document.body.classList.remove("menu-open");
+          if (menuToggle) menuToggle.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!document.body.classList.contains("menu-open")) return;
+        const isClickInsideToggle = menuToggle && menuToggle.contains(event.target);
+        const isClickInsideNav = siteNav && siteNav.closest(".nav").contains(event.target);
+        if (!isClickInsideToggle && !isClickInsideNav) {
+          document.body.classList.remove("menu-open");
+          if (menuToggle) menuToggle.setAttribute("aria-expanded", "false");
+        }
+      });
     </script>
   </body>
 </html>
