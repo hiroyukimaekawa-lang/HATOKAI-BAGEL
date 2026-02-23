@@ -426,7 +426,8 @@
 
       .menu-carousel__label {
         position: absolute;
-        left: 12px;
+        left: 50%;
+        transform: translateX(-50%);
         bottom: 12px;
         z-index: 2;
         background: rgba(37, 27, 22, 0.6);
@@ -434,6 +435,48 @@
         font-size: 0.85rem;
         padding: 6px 10px;
         border-radius: 999px;
+      }
+
+      #menu {
+        text-align: center;
+      }
+
+      #menu .section-lead {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .story-video-box {
+        max-width: 680px;
+        margin: 0 auto;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 18px;
+      }
+
+      .story-video-player {
+        width: 100%;
+        border-radius: 12px;
+        background: #111;
+      }
+
+      .story-video-note {
+        margin-top: 10px;
+        color: #6b5750;
+        font-size: 0.88rem;
+      }
+
+      .abroad-grid {
+        margin-top: 14px;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .abroad-grid img {
+        border-radius: 10px;
+        height: 150px;
       }
 
       .order {
@@ -570,22 +613,12 @@
           height: 240px;
         }
 
-        #menu {
-          text-align: center;
-        }
-
-        #menu .section-lead {
-          margin-left: auto;
-          margin-right: auto;
-        }
-
-        #menu .menu-carousel__label {
-          left: 50%;
-          transform: translateX(-50%);
-        }
-
         .sp-break {
           display: inline;
+        }
+
+        .abroad-grid {
+          grid-template-columns: 1fr;
         }
       }
 
@@ -639,7 +672,7 @@
           <p class="section-lead">健康・安心・安全、そして自然素材。女性の毎日に寄り添う味を目指しています。</p>
           <div class="concept-split">
             <figure class="concept-photo">
-              <img src="img/food4.jpg" alt="HATOKAI BAGELのベーグル" loading="lazy" />
+              <img src="img/store-image.jpg" alt="HATOKAI BAGELのベーグル" loading="lazy" />
             </figure>
             <div class="concept-content">
               <article class="concept-item">
@@ -734,9 +767,9 @@
                 </button>
               </li>
               <li>
-                <button class="timeline-trigger" type="button" data-image="img/food.jpg" data-alt="未来展開をイメージしたベーグル" data-caption="これからのHATOKAI BAGEL" data-detail="多くの方々に支えられながら、キッチンカー、店舗、通販、そして海外（カナダ・バンクーバー）へ。HATOKAI BAGELらしく、一歩ずつ楽しみながら挑戦を続けていきます。" data-origin="いつもHATOKAI BAGELを支えてくださっている皆さまへ。改めて、私たちのお店の名前の由来と、ここまでの歩みをお伝えします。">
-                  <h4>これから</h4>
-                  <p>通販・海外（カナダ・バンクーバー）展開へ</p>
+                <button class="timeline-trigger" type="button" data-image="img/abroad.jpg" data-alt="バンクーバー出店時の様子" data-caption="2025年11月: バンクーバー出店" data-detail="2025年11月にカナダ・バンクーバーへ出店しました。これからもHATOKAI BAGELらしく、国内外で挑戦を続けていきます。" data-origin="いつもHATOKAI BAGELを支えてくださっている皆さまへ。改めて、私たちのお店の名前の由来と、ここまでの歩みをお伝えします。" data-show-video="true">
+                  <h4>2025年11月</h4>
+                  <p>バンクーバー出店</p>
                 </button>
               </li>
             </ul>
@@ -744,10 +777,28 @@
         </div>
       </section>
 
+      <section id="story-video" class="section reveal" hidden>
+        <div class="container">
+          <div class="story-video-box">
+            <h2 class="section-title">海外出店の記録</h2>
+            <video class="story-video-player" controls playsinline preload="metadata">
+              <source src="img/story.mp4" type="video/mp4" />
+              お使いのブラウザは動画再生に対応していません。
+            </video>
+            <p class="story-video-note">※ 2025年11月 バンクーバー出店の様子</p>
+            <div class="abroad-grid">
+              <img src="img/abroad.jpg" alt="バンクーバー出店写真1" loading="lazy" />
+              <img src="img/abroad2.jpg" alt="バンクーバー出店写真2" loading="lazy" />
+              <img src="img/abroad3.jpg" alt="バンクーバー出店写真3" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="menu" class="section reveal">
         <div class="container">
           <h2 class="section-title">本日のベーグル</h2>
-          <p class="section-lead">日替わりでご提供中。<br class="sp-break" />詳しくはInstagramをご覧ください。</p>
+          <p class="section-lead">日替わりでご提供中。曜日によって内容が変わります。<br class="sp-break" />詳しくはInstagramをご覧ください。</p>
           <div class="menu-carousel" aria-label="本日のベーグル写真カルーセル">
             <figure class="menu-slide is-active">
               <img src="img/food.jpg" alt="ベーグルプレート1" loading="lazy" />
@@ -873,6 +924,7 @@
       const menuSlides = document.querySelectorAll(".menu-slide");
       const menuToggle = document.getElementById("menu-toggle");
       const siteNav = document.getElementById("site-nav");
+      const storyVideoSection = document.getElementById("story-video");
       let menuIndex = 0;
 
       timelineTriggers.forEach((trigger) => {
@@ -893,6 +945,15 @@
           const parentItem = trigger.closest("li");
           if (window.matchMedia("(max-width: 739px)").matches && parentItem && timelineInlinePreview) {
             parentItem.insertAdjacentElement("afterend", timelineInlinePreview);
+          }
+
+          if (storyVideoSection) {
+            const shouldShowVideo = trigger.dataset.showVideo === "true";
+            storyVideoSection.hidden = !shouldShowVideo;
+            if (shouldShowVideo) {
+              storyVideoSection.classList.add("is-visible");
+              storyVideoSection.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
           }
         });
       });
