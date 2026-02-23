@@ -403,6 +403,19 @@
         display: none;
       }
 
+      .story-detail-link {
+        margin-top: 10px;
+      }
+
+      .story-detail-link[hidden] {
+        display: none;
+      }
+
+      .story-detail-link a {
+        color: var(--accent);
+        text-decoration: underline;
+      }
+
       .menu-carousel {
         position: relative;
         margin: 26px 0 30px;
@@ -628,6 +641,22 @@
         .abroad-grid {
           grid-template-columns: 1fr;
         }
+
+        #online-shop .section-title {
+          white-space: nowrap;
+          font-size: clamp(1.15rem, 4.3vw, 1.5rem);
+        }
+
+        #online-shop .order-card > p:first-of-type {
+          white-space: nowrap;
+          font-size: clamp(0.95rem, 3.7vw, 1.1rem);
+          font-weight: 700;
+        }
+
+        #online-shop .order-card > p:nth-of-type(2) {
+          font-size: clamp(0.8rem, 3.1vw, 0.95rem);
+          line-height: 1.7;
+        }
       }
 
       @media (max-width: 739px) {
@@ -677,7 +706,7 @@
       <section id="concept" class="section reveal">
         <div class="container">
           <h2 class="section-title">こだわり</h2>
-          <p class="section-lead">健康・安心・安全、そして自然素材。女性の毎日に寄り添う味を目指しています。</p>
+          <p class="section-lead">健康・安心・安全、そして自然素材。大切なご家族の毎日に寄り添う味を目指しています。</p>
           <div class="concept-split">
             <figure class="concept-photo">
               <img src="img/store-image.jpg" alt="HATOKAI BAGELのベーグル" loading="lazy" />
@@ -708,12 +737,15 @@
               <img id="story-photo-image" src="img/food.jpg" alt="創業の想いを表すベーグル" loading="lazy" />
               <div class="story-preview__body">
                 <h3 id="story-photo-caption" class="story-preview__title">名前に込めた想い</h3>
-                <p id="story-photo-detail" class="story-preview__text">
-                  HATOKAIは、夫婦と4人の子どもたちから生まれた名前です。はるま（HA）・とうま（TO）・かずま（KA）・いろは（I）の頭文字を組み合わせ、家族の歴史そのものを店名に込めました。
-                </p>
-                <p id="story-origin-text" class="story-origin">
-                  いつもHATOKAI BAGELを支えてくださっている皆さまへ。改めて、私たちのお店の名前の由来と、ここまでの歩みをお伝えします。
-                </p>
+                  <p id="story-photo-detail" class="story-preview__text">
+                    HATOKAIは、夫婦と4人の子どもたちから生まれた名前です。はるま（HA）・とうま（TO）・かずま（KA）・いろは（I）の頭文字を組み合わせ、家族の歴史そのものを店名に込めました。
+                  </p>
+                  <p id="story-detail-link" class="story-detail-link" hidden>
+                    <a id="story-detail-link-anchor" href="#" target="_blank" rel="noreferrer">詳細はこちら</a>
+                  </p>
+                  <p id="story-origin-text" class="story-origin">
+                    いつもHATOKAI BAGELを支えてくださっている皆さまへ。改めて、私たちのお店の名前の由来と、ここまでの歩みをお伝えします。
+                  </p>
               </div>
             </article>
             <ul class="timeline">
@@ -775,7 +807,7 @@
                 </button>
               </li>
               <li>
-                <button class="timeline-trigger" type="button" data-image="img/abroad.jpg" data-alt="バンクーバー出店時の様子" data-caption="2025年11月: バンクーバー出店" data-detail="2025年11月にカナダ・バンクーバーへ出店しました。これからもHATOKAI BAGELらしく、国内外で挑戦を続けていきます。" data-origin="いつもHATOKAI BAGELを支えてくださっている皆さまへ。改めて、私たちのお店の名前の由来と、ここまでの歩みをお伝えします。" data-show-video="true">
+                <button class="timeline-trigger" type="button" data-image="img/abroad.jpg" data-alt="バンクーバー出店時の様子" data-caption="2025年11月: バンクーバー出店" data-detail="2025年11月にカナダ・バンクーバーへ出店しました。これからもHATOKAI BAGELらしく、国内外で挑戦を続けていきます。" data-origin="いつもHATOKAI BAGELを支えてくださっている皆さまへ。改めて、私たちのお店の名前の由来と、ここまでの歩みをお伝えします。" data-show-video="true" data-link="https://japanmarket.ca/">
                   <h4>2025年11月</h4>
                   <p>バンクーバー出店</p>
                 </button>
@@ -794,6 +826,10 @@
               お使いのブラウザは動画再生に対応していません。
             </video>
             <p class="story-video-note">※ 2025年11月 バンクーバー出店の様子</p>
+            <p class="story-video-note">
+              イベント名:
+              <a href="https://japanmarket.ca/" target="_blank" rel="noreferrer">Japan Market Vancouver</a>
+            </p>
             <div class="abroad-grid">
               <img src="img/abroad.jpg" alt="バンクーバー出店写真1" loading="lazy" />
               <img src="img/abroad2.jpg" alt="バンクーバー出店写真2" loading="lazy" />
@@ -825,6 +861,17 @@
           <a class="btn" href="https://www.instagram.com/hatokaibagel/" target="_blank" rel="noreferrer"
             ><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagramで最新メニューを見る</a
           >
+        </div>
+      </section>
+
+      <section id="online-shop" class="section reveal">
+        <div class="container">
+          <div class="order-card">
+            <h2 class="section-title">北海道天然酵母自家製ベーグル</h2>
+            <p>全国通販スタートしました！</p>
+            <p>遠方の方にもHATOKAI BAGELの味をお届けします。<br class="sp-break" />冷凍便で全国へ発送いたします。</p>
+            <a class="btn" href="https://hatokaibagel.base.shop/" target="_blank" rel="noreferrer">▶︎ オンラインショップはこちら</a>
+          </div>
         </div>
       </section>
 
@@ -924,6 +971,8 @@
       const storyPhotoImage = document.getElementById("story-photo-image");
       const storyPhotoCaption = document.getElementById("story-photo-caption");
       const storyPhotoDetail = document.getElementById("story-photo-detail");
+      const storyDetailLink = document.getElementById("story-detail-link");
+      const storyDetailLinkAnchor = document.getElementById("story-detail-link-anchor");
       const storyOriginText = document.getElementById("story-origin-text");
       const timelineInlinePreview = document.getElementById("timeline-inline-preview");
       const timelineInlineImage = document.getElementById("timeline-inline-image");
@@ -944,6 +993,14 @@
           storyPhotoCaption.textContent = trigger.dataset.caption;
           storyPhotoDetail.textContent = trigger.dataset.detail;
           storyOriginText.textContent = trigger.dataset.origin || "";
+
+          if (trigger.dataset.link) {
+            storyDetailLink.hidden = false;
+            storyDetailLinkAnchor.href = trigger.dataset.link;
+          } else {
+            storyDetailLink.hidden = true;
+            storyDetailLinkAnchor.href = "#";
+          }
 
           timelineInlineImage.src = trigger.dataset.image;
           timelineInlineImage.alt = trigger.dataset.alt;
