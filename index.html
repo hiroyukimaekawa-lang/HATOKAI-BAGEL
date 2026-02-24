@@ -88,6 +88,10 @@
         display: none;
       }
 
+      .sp-break-hero {
+        display: none;
+      }
+
       .btn {
         display: inline-flex;
         align-items: center;
@@ -261,6 +265,56 @@
         border: 1px solid var(--line);
         border-radius: 18px;
         padding: 28px 24px;
+      }
+
+      .voice-strip {
+        margin-top: 18px;
+      }
+
+      .voice-strip h3 {
+        font-size: 1rem;
+        margin-bottom: 10px;
+      }
+
+      .voice-grid {
+        display: grid;
+        gap: 12px;
+      }
+
+      .voice-card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 16px;
+      }
+
+      .voice-card__name {
+        font-size: 0.85rem;
+        color: var(--accent);
+        margin-bottom: 8px;
+      }
+
+      .voice-card .voice-card__rating {
+        display: inline-flex;
+        align-items: center;
+        gap: 2px;
+        padding: 0;
+        margin-bottom: 8px;
+        color: #f4b318;
+        letter-spacing: 0.06em;
+        font-size: 0.95rem;
+      }
+
+      .voice-card .voice-card__rating .star-half {
+        color: transparent;
+        background: linear-gradient(90deg, #f4b318 50%, #b9b0a5 50%);
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
+
+      .voice-card p {
+        font-size: 0.9rem;
+        color: #6a5750;
       }
 
       .concept-item + .concept-item {
@@ -463,6 +517,52 @@
         margin-right: auto;
       }
 
+      .ranking-grid {
+        display: grid;
+        gap: 14px;
+      }
+
+      .ranking-card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 18px;
+      }
+
+      .ranking-link {
+        display: block;
+        color: inherit;
+        text-decoration: none;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .ranking-link:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 22px rgba(59, 46, 42, 0.12);
+      }
+
+      .ranking-card__rank {
+        font-size: 0.8rem;
+        color: var(--accent);
+        margin-bottom: 4px;
+      }
+
+      .ranking-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 6px;
+      }
+
+      .ranking-card img {
+        border-radius: 10px;
+        height: 180px;
+        margin-bottom: 10px;
+      }
+
+      .ranking-card p {
+        color: #6a5750;
+        font-size: 0.9rem;
+      }
+
       .story-video-box {
         max-width: 680px;
         margin: 0 auto;
@@ -609,6 +709,19 @@
           align-items: stretch;
         }
 
+        .hero h1 {
+          white-space: nowrap;
+          font-size: clamp(1.9rem, 3.6vw, 3.2rem);
+        }
+
+        .ranking-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .voice-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
         .story-wrap {
           grid-template-columns: 1fr 1.2fr;
           align-items: start;
@@ -638,6 +751,19 @@
           display: inline;
         }
 
+        .sp-break-hero {
+          display: inline;
+        }
+
+        .hero h1 {
+          white-space: nowrap;
+          font-size: clamp(1.15rem, 5vw, 1.5rem);
+        }
+
+        .hero p {
+          font-size: clamp(0.9rem, 3.7vw, 1rem);
+        }
+
         .abroad-grid {
           grid-template-columns: 1fr;
         }
@@ -656,6 +782,16 @@
         #online-shop .order-card > p:nth-of-type(2) {
           font-size: clamp(0.8rem, 3.1vw, 0.95rem);
           line-height: 1.7;
+        }
+
+        .ranking-link {
+          min-height: 100%;
+          padding: 6px;
+          border-radius: 14px;
+        }
+
+        .ranking-card {
+          padding: 16px;
         }
       }
 
@@ -682,7 +818,9 @@
         <nav class="nav" aria-label="メインナビゲーション">
           <ul id="site-nav">
             <li><a href="#home">HOME</a></li>
+            <li><a href="#online-shop">SHOP</a></li>
             <li><a href="#concept">CONCEPT</a></li>
+            <li><a href="#ranking">RANKING</a></li>
             <li><a href="#story">OUR STORY</a></li>
             <li><a href="#menu">MENU</a></li>
             <li><a href="#access">ACCESS</a></li>
@@ -695,10 +833,10 @@
     <main id="home">
       <section class="hero">
         <div class="hero-inner reveal">
-          <h1>家族の想いを<br>ひとつひとつ丁寧に</h1>
-          <p>北海道小麦・天然酵母・無添加<br>体にやさしいベーグルをお届けします</p>
-          <a class="btn" href="https://www.instagram.com/hatokaibagel/" target="_blank" rel="noreferrer"
-            ><i class="fa-brands fa-instagram" aria-hidden="true"></i> ご予約はこちら（Instagram）</a
+          <h1>北海道天然酵母の自家製ベーグル</h1>
+          <p>全国発送しています。<br class="sp-break-hero" />今すぐご注文いただけます。</p>
+          <a class="btn" href="https://hatokaibagel.base.shop/" target="_blank" rel="noreferrer"
+            ><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> 今すぐ注文</a
           >
         </div>
       </section>
@@ -725,6 +863,65 @@
               <p>忙しい日でも続けやすく、素材に配慮した安心のベーグルです。</p>
               </article>
             </div>
+          </div>
+          <div class="voice-strip">
+            <h3>お客様の声</h3>
+            <div class="voice-grid">
+              <article class="voice-card">
+                <p class="voice-card__name">30代・女性</p>
+                <p class="voice-card__rating" aria-label="5段階評価の5">★★★★★</p>
+                <p>冷凍でも焼きたてみたいに美味しくて、朝の満足感が全然違います！</p>
+              </article>
+              <article class="voice-card">
+                <p class="voice-card__name">40代・ご家族</p>
+                <p class="voice-card__rating" aria-label="5段階評価の5">★★★★★</p>
+                <p>素材に安心感があるので、家族みんなで食べやすくて本当に助かっています！</p>
+              </article>
+              <article class="voice-card">
+                <p class="voice-card__name">20代・女性</p>
+                <p class="voice-card__rating" aria-label="5段階評価の4.5">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span class="star-half">★</span>
+                </p>
+                <p>朝食用に常備できるのが便利！忙しい日でもしっかり食べられてうれしいです。</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="online-shop" class="section reveal">
+        <div class="container">
+          <div class="order-card">
+            <h2 class="section-title">北海道天然酵母自家製ベーグル</h2>
+            <p>全国通販スタートしました！</p>
+            <p>遠方の方にもHATOKAI BAGELの味をお届けします。<br class="sp-break" />冷凍便で全国へ発送いたします。</p>
+            <a class="btn" href="https://hatokaibagel.base.shop/" target="_blank" rel="noreferrer">▶︎ オンラインショップはこちら</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="ranking" class="section reveal">
+        <div class="container">
+          <h2 class="section-title">人気商品ランキング</h2>
+          <div class="ranking-grid">
+            <a class="ranking-card ranking-link" href="https://hatokaibagel.base.shop/items/82105999" target="_blank" rel="noreferrer">
+              <p class="ranking-card__rank">No.1</p>
+              <img src="img/food5.jpg" alt="ランダムベーグル8個セット" loading="lazy" />
+              <h3>ランダムベーグル8個セット</h3>
+              <p>その日のおすすめを詰め合わせ。初めての方に人気です。</p>
+            </a>
+            <a class="ranking-card ranking-link" href="https://hatokaibagel.base.shop/items/110152952" target="_blank" rel="noreferrer">
+              <p class="ranking-card__rank">No.2</p>
+              <img src="img/food6.jpg" alt="チョコづくしセット" loading="lazy" />
+              <h3>チョコづくしセット</h3>
+              <p>甘さと満足感を両立した、チョコ好き向けセット。</p>
+            </a>
+            <a class="ranking-card ranking-link" href="https://hatokaibagel.base.shop/items/110133824" target="_blank" rel="noreferrer">
+              <p class="ranking-card__rank">No.3</p>
+              <img src="img/food7.jpg" alt="大人気8個セット" loading="lazy" />
+              <h3>大人気8個セット</h3>
+              <p>定番人気を中心にバランスよく楽しめるセットです。</p>
+            </a>
           </div>
         </div>
       </section>
@@ -861,17 +1058,6 @@
           <a class="btn" href="https://www.instagram.com/hatokaibagel/" target="_blank" rel="noreferrer"
             ><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagramで最新メニューを見る</a
           >
-        </div>
-      </section>
-
-      <section id="online-shop" class="section reveal">
-        <div class="container">
-          <div class="order-card">
-            <h2 class="section-title">北海道天然酵母自家製ベーグル</h2>
-            <p>全国通販スタートしました！</p>
-            <p>遠方の方にもHATOKAI BAGELの味をお届けします。<br class="sp-break" />冷凍便で全国へ発送いたします。</p>
-            <a class="btn" href="https://hatokaibagel.base.shop/" target="_blank" rel="noreferrer">▶︎ オンラインショップはこちら</a>
-          </div>
         </div>
       </section>
 
